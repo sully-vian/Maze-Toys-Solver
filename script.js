@@ -80,13 +80,19 @@ function getDirections(path) {
     return directions;
 }
 
-const graph = createMazeGraph(cells);
-const startCell = "0,0";
-const endCell = `${cells.length / 2 - 1},${cells[0].length - 1}`;
-const computedPath = solveMazeBFS(graph, startCell, endCell);
-const directions = getDirections(computedPath);
+async function main() {
+    const graph = createMazeGraph(cells);
+    const startCell = "0,0";
+    const endCell = `${cells.length / 2 - 1},${cells[0].length - 1}`;
+    const computedPath = solveMazeBFS(graph, startCell, endCell);
+    const directions = getDirections(computedPath);
 
-for (const direction of directions) {
-    tryMove(direction);
-    await new Promise((r) => setTimeout(r, 100));
+    console.log(`Path found with ${directions.length} steps`);
+
+    for (const direction of directions) {
+        tryMove(direction);
+        await new Promise((r) => setTimeout(r, 0)); // wai
+    }
+
+    console.log("Maze Solved!");
 }
