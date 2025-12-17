@@ -2,6 +2,18 @@
 
 Solver for [Maze Toys](https://maze.toys/) challenges.
 
+To use, just paste the following in your web console:
+
+```js
+document.head.appendChild(Object.assign(document.createElement('script'), {src: 'https://rawcdn.githack.com/sully-vian/Maze-Toys-Solver/refs/heads/main/script.js'}));
+```
+
+And then start with:
+
+```js
+main();
+```
+
 ## Notes
 
 ## Objective
