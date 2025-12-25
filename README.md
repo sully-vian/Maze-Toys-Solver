@@ -29,3 +29,7 @@ The current path is in the `path` variable.
 To move, the `tryMove` function can be called with `down`, `up`, `right`, `left` as argument.
 
 The `cells` variable is an array which first element is a matrix of `[top,right,bottom,left]` arrays where each of these elements is either 0 (wall) or 1 (no wall).
+
+## TODO
+
+click the move buttons or dispatch arrowKey events instead of calling tryMove for more legal cheating

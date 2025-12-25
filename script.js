@@ -38,7 +38,7 @@ function solveMazeBFS(graph, startNode, endNode) {
         const current = queue.shift();
         // finished
         if (current === endNode) {
-            return reconstructPath(parents, startNode, endNode);
+            return reconstructPath(parents, endNode);
         }
 
         for (const neighbor of graph[current]) {
@@ -53,7 +53,7 @@ function solveMazeBFS(graph, startNode, endNode) {
     return null; // path not found
 }
 
-function reconstructPath(parents, start, end) {
+function reconstructPath(parents, end) {
     const path = [];
     let current = end;
     while (current !== undefined) {
@@ -89,9 +89,11 @@ async function main() {
 
     console.log(`Path found with ${directions.length} steps`);
 
-    for (const direction of directions) {
+    tryMove(directions[0]);
+    await new Promise((r) => setTimeout(r, 0));
+
+    for (const direction of directions.slice(1)) {
         tryMove(direction);
-        await new Promise((r) => setTimeout(r, 0)); // wai
     }
 
     console.log("Maze Solved!");
